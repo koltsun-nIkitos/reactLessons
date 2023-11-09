@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>React! React! React!</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://unpkg.com/react@16/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
+</head>
+
+<body>
+    <div class="container"></div>
+
+    <script type="text/babel">
+        class HelloWorld extends React.Component{
+            render() {
+                return <p>Привет, {this.props.greetTarget}!</p>
+            }
+        }
+
+        class Buttonify extends React.Component{
+            render(){
+                return(
+                    <div>
+                        <button type={this.props.behavior}>
+                            {this.props.children}
+                        </button>    
+                    </div>
+                );
+            }
+        }
+
+        ReactDOM.render(
+            <div>
+                <HelloWorld greetTarget="Бэтмен"/>
+                <HelloWorld greetTarget="Терминатор"/>
+                <HelloWorld greetTarget="Николас Кейдж"/>
+                <HelloWorld greetTarget="Нео"/>
+                <HelloWorld greetTarget="Боня"/>
+                <HelloWorld greetTarget="Женщина-кошка"/>
+                <Buttonify behavior="submit">Отправить данные</Buttonify>
+            </div>,
+            document.querySelector(".container")
+        )
+    </script>
+</body>
+
+</html>
