@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>React! React! React!</title>
+    <script src="https://unpkg.com/react@16/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
+</head>
+
+<body>
+    <div class="container"></div>
+
+    <script type="text/babel">
+        const destination = document.querySelector(".container");
+
+        class Letter extends React.Component{
+            render(){
+                const letterStyle = {
+                    padding: 10,
+                    margin: 10,
+                    backgroundColor: this.props.bgcolor,
+                    color: "#333",
+                    display: "inline-block",
+                    fontFamily: "monospace",
+                    fontSize: 32,
+                    textAlign: "center",
+                }
+
+                return(
+                    <div style={letterStyle}>
+                        {this.props.children}    
+                    </div>
+                );
+            }
+        }
+
+        ReactDOM.render(
+            <div>
+                <Letter bgcolor="#58B3FF">А</Letter>    
+                <Letter bgcolor="#FF605F">Е</Letter>  
+                <Letter bgcolor="#FFD52E">И</Letter>  
+                <Letter bgcolor="#49DD8E">О</Letter>  
+                <Letter bgcolor="#AE99FF">У</Letter>  
+            </div>,
+            destination
+        )
+
+    </script>
+</body>
+
+</html>
